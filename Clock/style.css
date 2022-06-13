@@ -9,7 +9,7 @@
 }
 
 .clock-container {
-    width: 405px;
+    width: 500px;
     height: 150px;
     display: flex;
     align-items: center;
@@ -117,7 +117,7 @@
 }
 
 .toast {
-    width: 405px;
+    width: 505px;
     color: var(--light);
     padding: 15px 24px;
     background-color: var(--purple-dark);
