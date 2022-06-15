@@ -16,19 +16,22 @@ body {
 	height: 100vh;
 }
 .main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.stopwatch-container{
     background-color: rosybrown;
-    margin: 0 auto;
-    width: 40%;
+    margin: auto;
+    flex-basis: 400px;
     /* display: flex;
     justify-content: center; */
     height: 150px;
     border: 2px solid rgb(94, 66, 129);
     border-radius: 10px;
-    margin-top: 1rem;;
-}
-.stopwatch-container{
-    width: 100%;
-    
+    margin-top: auto;
+
 }
 .display{
     display: flex;
@@ -40,7 +43,7 @@ body {
     /* border: 1px solid black; */
     text-align: center;
     margin-top: 1rem;
-    font-size: 40px;
+    /* font-size: 40px; */
 }
 .button-container{
     margin: 0 auto;
