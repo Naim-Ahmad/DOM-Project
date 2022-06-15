@@ -23,9 +23,7 @@
     box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.825);
 }
 
-.clock-container > .hours > span {
-    text-transform: uppercase;
-    font-size: 10px;
+.clock-container > .hours > span { 
     text-align: right;
     display: block;
 }
