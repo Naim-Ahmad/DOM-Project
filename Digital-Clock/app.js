@@ -5,13 +5,14 @@ const progress = document.getElementById("progress")
 const ampm = document.getElementById('AM')
 
 
-function getCorrentTime() {
+function getCurrentTime() {
     let date = new Date()
     // date.toString()
     // let hr1 = date.setHours(12)
     let hr = date.getHours()
     let min = date.getMinutes()
     let sec = date.getSeconds()
+    console.log(sec)
 
     hours.textContent = hr % 12 < 10 ? hr % 12 === 0 ? 12 : "0" + hr : hr
     
@@ -24,4 +25,4 @@ function getCorrentTime() {
     ampm.textContent = hr >= 12 ? 'PM': 'AM'
 }
 
-setInterval(getCorrentTime, 1000)
+setInterval(getCurrentTime, 1000)

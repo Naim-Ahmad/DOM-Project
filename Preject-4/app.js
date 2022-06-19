@@ -11,6 +11,8 @@
 
 // Step 1 - onload handler function
 
+let div = null
+
 window.onload = () => {
     main()
 }
@@ -32,6 +34,13 @@ function main() {
     
     copyBtn.addEventListener('click', function () {
         window.navigator.clipboard.writeText(outputs.value)
+
+        if (div !== null) {
+			div.remove();
+			div = null;
+		}
+
+        generateToastMessage(`${outputs.value} copied!`)
     })
 }
 
@@ -48,7 +57,28 @@ function generateHEXcolor() {
     
 }
 
+
+function generateToastMessage(msg) {
+    div = document.createElement('div')
+    div.innerText = msg
+    div.className = 'toast-messages toast-message-slide-in'
+
+    document.body.appendChild(div)
+
+    div.addEventListener('click', function () {
+        div.classList.remove('toast-messages-slide-end')
+        div.classList.add('toast-message-slide-out')
+
+        div.addEventListener('animationend', function () {
+            div.remove()
+            div = null
+        })
+    })
+}
+
 // Step 4 - Collect all necessary information
 
 
 // Step 5 - add event listener 
+
+// Step 6 - create toast messages 

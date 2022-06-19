@@ -1,4 +1,4 @@
-// Change the background color by cliking button
+// Change the background color by clicking button
 // and show hax color on disabled input field
 
 // step-1 onload function
