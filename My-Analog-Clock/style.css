@@ -131,24 +131,24 @@ h1{
 }
 #second{
   width: 2%;
-  height: 53%;
+  height: 50%;
   z-index: 1000;
   top: 13%;
 }
 #minute{
   width: 3%;
-  height: 44%;
+  height: 39%;
   /* background: black; */
-  top: 84px;
+  top: 86px;
   border-radius: 15px;
   right: 223px;
   z-index: 998;
 }
 #hour{
   width: 4%;
-  height: 34%;
+  height: 32%;
   border-radius: 15px;
-  top: 115px;
+  top: 116px;
   z-index: 995;
   left: 211px;
 }
@@ -158,7 +158,7 @@ h1{
   width: 40px;
   min-height: 40px;
   position: relative;
-  top: 145px;
+  top: 139px;
   right: 20px;
   background-color: black;
   border-radius: 50%;
