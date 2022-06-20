@@ -14,7 +14,7 @@ function getCurrentTime() {
     let sec = date.getSeconds()
     console.log(sec)
 
-    hours.textContent = hr % 12 < 10 ? hr % 12 === 0 ? 12 : "0" + hr : hr
+    hours.textContent = (hr % 12) < 10 ? hr % 12 === 0 ? 12 : "0" + hr : hr
     
     minute.textContent = min < 10 ? "0" + min : min
 
