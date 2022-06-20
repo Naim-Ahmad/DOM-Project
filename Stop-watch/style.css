@@ -13,53 +13,73 @@ body {
 		hsl(0, 0%, 95%);
 	background-size: 100px;
 	font-family: "Source Sans Pro", sans-serif;
-	height: 100vh;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 4rem ;
 }
 .main{
     height: 100vh;
     display: flex;
     justify-content: center;
-    justify-items: center;
+    align-items: center;
+    flex-direction: column;
 }
 .stopwatch-container{
     background-color: rosybrown;
-    margin: auto;
-    flex-basis: 400px;
-    /* display: flex;
-    justify-content: center; */
-    height: 150px;
+    width: 500px;
+    height: 500px;
     border: 2px solid rgb(94, 66, 129);
-    border-radius: 10px;
-    margin-top: auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 
 }
 .display{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4rem;
 }
 .display > div{
-    width: 1rem;
-    /* border: 1px solid black; */
-    text-align: center;
-    margin-top: 1rem;
-    /* font-size: 40px; */
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+.colon{
+    background: black;
+    width: 12px;
+    height: 12px;
+    margin-top: 24%;
+}
+.colon:after{
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    position: relative;
+    top: 195%;
 }
 .button-container{
     margin: 0 auto;
-    
     display: flex;
     justify-content: center;
-    margin: 1rem 0px;
+    justify-items: center;
+    margin-bottom: 5rem;
     
 }
 
 .button-container > button{
     
-    padding: 2% 5%;
+    padding: 10% 20%;
     border-radius: 10px;
     color: white;
     background: rgb(34, 33, 105);
+    margin-bottom: 3rem;
     
 }
 
@@ -68,10 +88,7 @@ body {
     color: white;
     cursor: pointer;
 }
-.colon{
-    
-    margin-left: 20px;
-}
+
 
 
 
