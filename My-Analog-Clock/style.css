@@ -149,12 +149,12 @@ h1{
   right: 49%;
 }
 .circle{
-  width: 11%;
-  height: 11%;
+  width: 9%;
+  height: 9%;
   position: relative;
-  top: 192px;
-  right: -199px;
+  top: 196px;
+  right: -199px;;
   background-color: black;
   border-radius: 50%;
-  z-index: 0;
+  z-index: -0;
 }
