@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-8 | Copy Hex Color & RGB Color</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main" id="root">
+      <div class="text">
+        <h1>Change The Background Color By Clicking The Following Button</h1>
+      </div>
+
+      <div class="hex-code-container">
+        <div class="hex-group">
+          <label> HEX Color Code</label><br />
+          <div class="hex-icon">#</div>
+          <input type="text" value="000000" class="output" id="output" />
+          <button class="copy-button" id="copyBtn">Copy</button>
+        </div>
+
+        <div class="rgb-group">
+          <label> RGB Color Code </label>
+          <br />
+          <input
+            type="text"
+            value="rgb(0,0,0)"
+            disabled
+            class="output"
+            id="output2"
+          />
+          <button class="copy-button" id="copyBtn2">Copy</button>
+        </div>
+      </div>
+
+      <button class="color-button" id="ChangeColorBtn">change color</button>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-8 | Copy Hex Color & RGB Color</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="section1">
+        <div class="display-header">
+          <h3>Display Color</h3>
+          <button id="random-color-btn">Random Color</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="main" id="display"></div>
+      </section>
+
+      <section class="section-two">
+        <div class="section-two-header">
+          <h3>Change & Copy Color</h3>
+          <button id="copy-btn">copy to clipboard</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="copy-mode">
+          <h4>Select Copy Mode</h4>
+          <div class="copy-anyone">
+            <input type="radio" name="hex" id="hex" checked /> Hex
+            <input type="radio" name="hex" id="rgb" /> RGB
+          </div>
+        </div>
+
+        <div class="color-code-output">
+          <div class="hex-group color-input">
+            <label> HEX</label><br />
+            <div class="hex-icon">#</div>
+            <input
+              type="text"
+              value="DDDDDD"
+              class="output"
+              id="show-hex-code"
+            />
+          </div>
+
+          <div class="rgb-group color-input">
+            <label> RGB</label>
+            <br />
+            <input
+              type="text"
+              value="rgb(0,0,0)"
+              disabled
+              class="output2"
+              id="show-rgb-code"
+            />
+          </div>
+        </div>
+
+        <div class="color-adjustment">
+          <h4>Adjustment RGB Colors</h4>
+          <div class="color-slide">
+            <div class="red item">
+              <div class="red-header">
+                <p>Red</p>
+                <p id="red-label">225</p>
+              </div>
+              <input
+                type="range"
+                name="red"
+                id="red"
+                min="0"
+                max="250"
+                value="240"
+              />
+            </div>
+            <div class="green item">
+              <div class="red-header">
+                <p>Green</p>
+                <p id="green-label">225</p>
+              </div>
+              <input
+                type="range"
+                name="green"
+                id="green"
+                min="0"
+                max="250"
+                value="190"
+              />
+            </div>
+
+            <div class="blue item">
+              <div class="red-header">
+                <p>Blue</p>
+                <p id="blue-label">225</p>
+              </div>
+              <input
+                type="range"
+                name="red"
+                id="blue"
+                min="0"
+                max="250"
+                value="130"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

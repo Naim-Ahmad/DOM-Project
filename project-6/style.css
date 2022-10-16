@@ -16,18 +16,32 @@
 
 .text > h1 {
   text-align: center;
-  /* color: white; */
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff;
 }
 .hex-code-container {
   margin: 0 auto;
   margin-top: 2rem;
+  position: relative;
+  box-shadow: 0 0 3px 0px black;
+}
+
+.hex-icon {
+  background-color: rgb(236, 231, 231);
+  width: 20px;
+  font-weight: 600;
+  position: absolute;
+  height: 28.5px;
+  top: 0.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px 0px 0px 3px;
 }
 
 .color-button {
   background-color: black;
-  border: 2pt solid white;
+  border: 1pt solid white;
   border-radius: 10px;
   padding: 15px 3.4rem;
   margin: 0 auto;
@@ -41,14 +55,14 @@
   background-color: white;
   color: black;
   cursor: pointer;
-  border: 2pt solid black;
+  border: 1pt solid black;
 }
 
 .copy-button {
   padding: 7px 15px;
   border-radius: 5px;
   font-weight: bold;
-  border: 1pt solid black;
+  border: none;
 }
 
 .copy-button:hover {
@@ -61,6 +75,10 @@
 
 .output {
   padding: 5px 15px;
+  padding-left: 22px;
+}
+.output:focus {
+  outline: none;
 }
 
 .toast-messages {
