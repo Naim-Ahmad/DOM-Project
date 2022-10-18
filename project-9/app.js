@@ -1,8 +1,14 @@
 
 // Global
+let defaultObj = {
+    red: 170,
+    green: 170,
+    blue: 170
+}
 
 window.onload = () => {
     main()
+    updateToDom(defaultObj)
 }
 
 // Main function the collect all references
@@ -37,9 +43,11 @@ function handleGenerateRandomColor(){
 
 function handleHexInput(e){
     const color = e.target.value
-    if(color){
+
+    if (color) {
+        document.getElementById('show-hex-code').value = color.toUpperCase()
         if (isValidHex(color)) {
-            document.getElementById('show-hex-code').setAttribute('maxlength', '6')
+            document.getElementById('show-hex-code').setAttribute('maxlength', '6').toUpperCase()
             const decimal = hexToDecimal(color)
             updateToDom(decimal)
         }
@@ -114,8 +122,7 @@ function generateToastMessage(msg) {
     toastContainer.appendChild(p)
     
     p.addEventListener('animationend', function () {
-        let lastChild = toastContainer.lastChild;
-        lastChild.remove()
+        p.remove()
     })
 }
 
