@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project-8 | Copy Hex Color & RGB Color</title>
+    <title>Project-9 | Refactor The Project</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="toast-container">
+      
+    </div>
     <div class="container">
       <section class="section1">
         <div class="display-header">
-          <h3>Display Color</h3>
+          <h4>Display Color</h4>
           <button id="random-color-btn">Random Color</button>
         </div>
 
@@ -22,17 +25,19 @@
 
       <section class="section-two">
         <div class="section-two-header">
-          <h3>Change & Copy Color</h3>
+          <h4>Change & Copy Color</h4>
           <button id="copy-btn">copy to clipboard</button>
         </div>
 
         <div class="divider"></div>
 
         <div class="copy-mode">
-          <h4>Select Copy Mode</h4>
+          <h5>Select Copy Mode</h5>
           <div class="copy-anyone">
-            <input type="radio" name="hex" id="hex" checked /> Hex
-            <input type="radio" name="hex" id="rgb" /> RGB
+            <input type="radio" name="copy-mode" id="hex" value="hex" checked />
+            <label for="hex">Hex</label>
+            <input type="radio" name="copy-mode" id="rgb" value="rgb" />
+            <label for="rgb">RGB</label>
           </div>
         </div>
 
@@ -42,7 +47,7 @@
             <div class="hex-icon">#</div>
             <input
               type="text"
-              value="DDDDDD"
+              value="AAAAAA"
               class="output"
               id="show-hex-code"
             />
@@ -53,7 +58,7 @@
             <br />
             <input
               type="text"
-              value="rgb(0,0,0)"
+              value="rgb(170,170,170)"
               disabled
               class="output2"
               id="show-rgb-code"

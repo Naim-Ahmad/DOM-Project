@@ -15,13 +15,13 @@ body {
 }
 
 .main {
-  background-color: #ddd;
+  background-color: #aaa;
   width: 100%;
   height: 18vh;
 }
 
 .container {
-  max-width: 30%;
+  max-width: 24rem;
   background-color: white;
   margin: 1rem auto;
   padding: 1rem;
@@ -65,7 +65,9 @@ body {
   background-color: white;
   border: none;
 }
-
+label {
+  user-select: none;
+}
 .copy-mode {
   display: flex;
   justify-content: space-between;
@@ -162,24 +164,32 @@ body {
   animation: toast-animation-out 0.5s ease-in;
 }
 
-@keyframes toast-animation-in {
-  from {
-    transform: translateX(200px);
+.toast-container{
+  display: grid;
+  align-items: end;
+  gap: 1rem;
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+}
+
+.toast{
+  font-weight: bold;
+  background-color: lightblue;
+  padding: 10px 1rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px 0px black;
+  animation: toast-animation 3000ms forwards;
+}
+
+@keyframes toast-animation {
+  0%,100% {
+    transform: translateX(-150%);
     opacity: 0;
   }
-  to {
-    transform: translateX(0px);
+  10%,90% {
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
-@keyframes toast-animation-out {
-  from {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(200px);
-    opacity: 0;
-  }
-}
