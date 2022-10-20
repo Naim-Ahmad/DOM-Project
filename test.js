@@ -1,4 +1,14 @@
-let str = 'I love Allah'
+let str = 'I love laptop'
 
-let src = //
-console.log(src)
+let replaced = str.replace(/laptop/gi, 'Allah')
+
+console.log(replaced)
+
+let rgbCode = 'rgb(60, 12, 36)'
+
+let arrRgbCode = rgbCode.match(/\d/g)
+
+arrRgbCode.forEach(color => {
+    console.log(color)
+})
+

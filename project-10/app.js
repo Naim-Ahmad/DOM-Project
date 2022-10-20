@@ -1,25 +1,26 @@
-
 // Global
-let defaultObj = {
+const defaultObj = {
     red: 171,
     green: 205,
     blue: 239
 }
 
-let colorArr = [
-    '#47B8FE',
+const colorArr = [
+    '#3C0C24',
     '#DDE520',
     '#E945C0',
     '#6A4503',
     '#90BAAB',
     '#6AC51D',
-    '#28C3A6',
+    '#246F68',
     '#07F8BB',
     '#D60865',
     '#796773',
     '#2545AB',
     '#C99332',
 ]
+
+const copySound = new Audio('./copy-sound.wav')
 
 window.onload = () => {
     main()
@@ -42,21 +43,55 @@ function main() {
     // event listener 
     randomColorBtn.addEventListener('click', handleGenerateRandomColor)
     showHexCode.addEventListener('keyup', handleHexInput)
-    
     redSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
     greenSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
     blueSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
-    
     copyBtn.addEventListener('click', handleCopyToClipBoard)
 
     paletteContainer.addEventListener('click', function (event) {
-        if (event.target.classList.value === 'preset-color-box') {
-            
+        const child = event.target
+
+        if (child.classList.value === 'preset-color-box') {
+            const color = child.getAttribute('data-color')
+            navigator.clipboard.writeText(color)
+            copySound.play()
+            copySound.volume = 0.3
+            generateToastMessage(color)
         }
     })
-    }
+}
+    /**
+     * The function get a rgb color code and return hex color code
+     * @param {String} rgbColorCode 
+     * @return {String} hex Color Code
+     */
 
+// function rgbToHex(rgbColorCode) {
+
+//     const digits = rgbColorCode.match(/[0-9,]/g)
     
+//     let result = '';
+    
+//     for (let i = 0; i < digits.length; i++){
+//         result += digits[i]
+//     }
+    
+//     const splitDigit = result.split(',')
+    
+//     const red = parseInt(splitDigit[0])
+//     const green = parseInt(splitDigit[1])
+//     const blue = parseInt(splitDigit[2])
+
+//     const getTwoCode = (value) =>{
+//         const hex =  value.toString(16)
+//         return hex.length === 1 ? `0${hex}` : hex
+//      }
+ 
+//      return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(blue)}`.toUpperCase()
+
+// }
+
+
 // All Handler 
 function handleGenerateRandomColor(){
     const decimalObj = generateDecimal()
@@ -101,13 +136,17 @@ function handleCopyToClipBoard() {
         const hexCode = document.getElementById('show-hex-code')
         if (mode && isValidHex(hexCode.value)) {
             navigator.clipboard.writeText(`#${hexCode.value}`)
-            generateToastMessage(`#${hexCode.value} copied`)
+            generateToastMessage(`#${hexCode.value}`)
+            copySound.play()
+            copySound.volume = 0.3
         } 
 
     } else {
         const rgbCode = document.getElementById('show-rgb-code')
         navigator.clipboard.writeText(rgbCode.value)
-        generateToastMessage(`${rgbCode.value} copied`)
+        generateToastMessage(`${rgbCode.value}`)
+        copySound.play()
+        copySound.volume = 0.3
     }
 }
 
@@ -132,9 +171,9 @@ function updateToDom(decimalObj){
  * @param {String} msg 
  */
 
-function generateToastMessage(msg) {
+function generateToastMessage(code) {
     let p = document.createElement('p')
-    p.innerText = msg
+    p.innerText = `${code} copied!`
     p.className = 'toast'
     
     let toastContainer = document.querySelector('.toast-container')
@@ -151,11 +190,11 @@ function generateToastMessage(msg) {
  */
 
 function generatePaletteBox(colors) {
-    colors.forEach((color) => {
+    colors.forEach(color => {
     const p = document.createElement('p')
     p.className = 'preset-color-box'
         p.style.background = color
-        p.dataset = 'data-color'
+        p.setAttribute('data-color', color)
     const paletteContainer = document.querySelector('.preset-palette-container')
     paletteContainer.appendChild(p)
     })   
