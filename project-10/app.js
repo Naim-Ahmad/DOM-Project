@@ -6,9 +6,25 @@ let defaultObj = {
     blue: 239
 }
 
+let colorArr = [
+    '#47B8FE',
+    '#DDE520',
+    '#E945C0',
+    '#6A4503',
+    '#90BAAB',
+    '#6AC51D',
+    '#28C3A6',
+    '#07F8BB',
+    '#D60865',
+    '#796773',
+    '#2545AB',
+    '#C99332',
+]
+
 window.onload = () => {
     main()
     updateToDom(defaultObj)
+    generatePaletteBox(colorArr)
 }
 
 // Main function the collect all references
@@ -20,8 +36,8 @@ function main() {
     const greenSlider = document.getElementById('green')
     const blueSlider = document.getElementById('blue')
     const copyBtn = document.getElementById('copy-btn')
+    const paletteContainer = document.querySelector('.preset-palette-container')
     
-
     
     // event listener 
     randomColorBtn.addEventListener('click', handleGenerateRandomColor)
@@ -32,32 +48,26 @@ function main() {
     blueSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
     
     copyBtn.addEventListener('click', handleCopyToClipBoard)
+
+    paletteContainer.addEventListener('click', function (event) {
+        if (event.target.classList.value === 'preset-color-box') {
+            
+        }
+    })
     }
 
     
 // All Handler 
-
-/**
- * The function generate decimal number of color code and update it every where in Dom
- */
-
 function handleGenerateRandomColor(){
     const decimalObj = generateDecimal()
     updateToDom(decimalObj)
 }
 
-/**
- * the function take hex color code of user's code from input field  and update every where in Dom
- * @param {Object} e
- */
-
 function handleHexInput(e){
     const color = e.target.value
 
     if (color) {
-        const hexInp = document.getElementById('show-hex-code')
-        hexInp.value = color.toUpperCase()
-        
+        document.getElementById('show-hex-code').value = color.toUpperCase()
         if (isValidHex(color)) {
             const decimal = hexToDecimal(color)
             updateToDom(decimal)
@@ -66,7 +76,7 @@ function handleHexInput(e){
 }
 
 /**
- * The function for handle Slider
+ * 
  * @return {Object} color 
  */
  function handleCreateSliderObject(redSlider, greenSlider, blueSlider){
@@ -80,10 +90,6 @@ function handleHexInput(e){
         updateToDom(color)
     }
  }
-
- /**
-  * The function copy the color code
-  */
 
 function handleCopyToClipBoard() {
     const mode = checkedRadioBtn(document.getElementsByName('copy-mode'))
@@ -105,12 +111,7 @@ function handleCopyToClipBoard() {
     }
 }
 
-// DOM Related Function
-
-/** 
- * The function take a number color code as object and update the color code every where in DOM
- * @param {Object} decimalObj 
- */
+// Dom related function 
 function updateToDom(decimalObj){
     const hex = generateHEXcolor(decimalObj).toUpperCase()
     const rgb = generateRGB(decimalObj)
@@ -123,9 +124,7 @@ function updateToDom(decimalObj){
     document.getElementById('blue-label').innerText = decimalObj.blue
     document.getElementById('red').value =  decimalObj.red
     document.getElementById('green').value =  decimalObj.green
-    document.getElementById('blue').value = decimalObj.blue
-    
-    
+    document.getElementById('blue').value = decimalObj.blue   
 }
 
 /**
@@ -145,6 +144,26 @@ function generateToastMessage(msg) {
         p.remove()
     })
 }
+
+/**
+ * generate p element and append it to paren 
+ * @param {Array} color
+ */
+
+function generatePaletteBox(colors) {
+    colors.forEach((color) => {
+    const p = document.createElement('p')
+    p.className = 'preset-color-box'
+        p.style.background = color
+        p.dataset = 'data-color'
+    const paletteContainer = document.querySelector('.preset-palette-container')
+    paletteContainer.appendChild(p)
+    })   
+
+}
+
+
+
 
 // Utility
 /**
@@ -234,3 +253,4 @@ function checkedRadioBtn(node) {
     }
     return isCheckedRadio
 }
+
