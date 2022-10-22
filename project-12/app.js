@@ -62,23 +62,7 @@ function main() {
     greenSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
     blueSlider.addEventListener('change', handleCreateSliderObject(redSlider, greenSlider, blueSlider))
     copyBtn.addEventListener('click', handleCopyToClipBoard)
-    saveBtn.addEventListener('click', function () {
-        const color = `#${showHexCode.value}`;
-        if (customColor.includes(color)) {
-            generateToastMessage('Already saved', '', 'lightcoral')
-            return
-        }
-        customColor.unshift(color)
-        localStorage.setItem('customColor', JSON.stringify(customColor))
-        if (customColor.length > 12) {
-            customColor = customColor.slice(0, 12)
-        }
-        removeChildren(customPresetContainer)
-        updatePaletteColor(customPresetContainer, customColor)
-        generateToastMessage(color, 'saved')
-        playSound()
-        
-    })
+    saveBtn.addEventListener('click', handleSaveBtn(customPresetContainer, showHexCode))
     
     paletteContainer.addEventListener('click', handlePresetColor(paletteContainer))
     customPresetContainer.addEventListener('click', presetCopyToClip)
@@ -166,34 +150,26 @@ function handlePresetColor(parent) {
     }
 }
 
-function presetCopyToClip(event) {
-    const child = event.target
-if (child.classList.value === 'preset-color-box') {
-    const color = child.getAttribute('data-color')
-    navigator.clipboard.writeText(color)
-    playSound()
-    generateToastMessage(color)
-}
-}
-
-
-
 // handle save button
 
-// function handleSaveBtn(parent, showHexCode) {
-//     return function () {
-//         const color = `#${showHexCode.value}`;
-//         if(customColor.includes(color)) return
-//         customColor.unshift(color)
-//         updatePaletteColor(parent, customColor)
-//         removeChildren(parent)
-//         // const index = customColor.indexOf(color)
-//         // customColor.splice(index, 1)
-//         generateToastMessage(color, 'saved')
-//         copySound.play()
-//         copySound.volume = 0.3
-//     }
-// }
+function handleSaveBtn(parent, showHexCode) {
+    return function () {
+        const color = `#${showHexCode.value}`;
+        if (customColor.includes(color)) {
+            generateToastMessage('Already saved', '', 'lightcoral')
+            return
+        }
+        customColor.unshift(color)
+        localStorage.setItem('customColor', JSON.stringify(customColor))
+        if (customColor.length > 12) {
+            customColor = customColor.slice(0, 12)
+        }
+        removeChildren(customPresetContainer)
+        updatePaletteColor(customPresetContainer, customColor)
+        generateToastMessage(color, 'saved')
+        playSound()
+    }
+}
 /**
  * 
  * @param {Node} parent 
@@ -375,3 +351,13 @@ function checkedRadioBtn(node) {
     return isCheckedRadio
 }
 
+
+function presetCopyToClip(event) {
+    const child = event.target
+if (child.classList.value === 'preset-color-box') {
+    const color = child.getAttribute('data-color')
+    navigator.clipboard.writeText(color)
+    playSound()
+    generateToastMessage(color)
+}
+}
