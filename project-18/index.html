@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-18</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-header">
+        <h1>Fill The Form Below</h1>
+        <small>*negative values are not accepted</small>
+        <div class="divider"></div>
+        <div class="display-number">00</div>
+      </div>
+
+      <div class="Inp&BtnContainer">
+        <input
+          type="number"
+          name="increment-input"
+          id="increment-input"
+          min="1"
+          max="100"
+        />
+        <button id="IncrementBtn">Increment</button>
+        <button id="decrementBtn">Decrement</button>
+        <input
+          type="number"
+          min="1"
+          max="100"
+          name="decrement-input"
+          id="decrement-input"
+        />
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
