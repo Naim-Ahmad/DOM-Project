@@ -15,8 +15,13 @@ function main() {
     submitBtn.addEventListener('click', function () {
         showResult.style.display = 'block'
         const userName = userNameInp.value
-        displayUserName.innerText = userName
-        userNameInp.value = ''
+        if (!userName) {
+            alert('Please Provide a Name')
+            showResult.style.display = 'none'
+        } else {
+            displayUserName.innerText = userName
+            userNameInp.value = ''
+        }      
      })
     
     resetBtn.addEventListener('click', function () {
