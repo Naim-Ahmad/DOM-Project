@@ -49,8 +49,6 @@ let defaultQuote = [
         —- হজরত আলী (রাঃ)`,
       `  “সে কী পেলো যে আল্লাহকে হারালো ? সে কী হারালো যে আল্লাহকে পেলো?”
         —- [ইবনু আতা’আল্লাহ আল ইসকান্দারি (রাহিমাহুল্লাহ)]`,
-        `“বিদ্বানের কলমের কালি শহীদের রক্তের চেয়েও পবিত্র।”
-        — আল হাদিসইসলামিক বাণী ও উক্তি`,
         `“ যা তুমি নিজে করো না বা করতে পারো না, তা অন্যকে উপদেশ দিও না।”
         —- হযরত আলী (রাঃ)`,
         `“ আল্লাহ তায়ালার ভয়ে তুমি যা কিছু ছেড়ে দিবে, আল্লাহ তোমাকে তার চেয়ে উত্তম কিছু অবশ্যই দান করবেন।”
@@ -61,6 +59,8 @@ let defaultQuote = [
         —[ড. বিলাল ফিলিপ্স]`
 ]
 
+let index = 0;
+
 window.onload = () => {
     main()
 }
@@ -70,7 +70,12 @@ function main() {
     const display = document.querySelector('.display-quote')
 
     newQuoteBtn.addEventListener('click', function () {
-        const index = Math.floor(Math.random() * defaultQuote.length)
+        console.log(index)
+        if (defaultQuote.length - 1 === index) {
+            index = 0;
+        } else {
+            index++
         display.innerHTML = defaultQuote[index]
+        } 
     })
 }

@@ -5,12 +5,12 @@
 }
 
 body {
-  font-size: 2rem;
+  font-size: 21px;
   font-family: "kalpurush";
 }
 
 .container {
-  width: 55rem;
+  width: 47rem;
   margin: 2rem auto;
   background-color: aliceblue;
   padding: 2rem;
